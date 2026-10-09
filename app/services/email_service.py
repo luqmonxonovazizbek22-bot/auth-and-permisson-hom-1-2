@@ -44,7 +44,7 @@ def confirm_code(user, code):
 
 def finish_code(user):
     record = EmailCode.objects.filter(
-        user=user, is_confirmed=True
+        user=user
     ).first()
 
     if record is None or record.is_expired():

@@ -5,7 +5,7 @@ from drf_yasg.views import get_schema_view
 from rest_framework import permissions
 from rest_framework_simplejwt.views import TokenRefreshView, TokenObtainPairView
 
-from app.views import LogoutView, RegisterView
+from app.views import LogoutView, RegisterView, ForgotPasswordView, ConfirmPasswordView, ResetPasswordView
 from app.views import VerifyEmailView, ResendCodeView
 
 schema_view = get_schema_view(
@@ -30,4 +30,8 @@ urlpatterns = [
     path("refresh/", TokenRefreshView.as_view()),
     path("logout/", LogoutView.as_view()),
     # path("me/", MeView.as_view()),
+
+    path("forgot-password/", ForgotPasswordView.as_view()),
+    path("confirm-password/", ConfirmPasswordView.as_view()),
+    path("reset-password/", ResetPasswordView.as_view()),
 ]
